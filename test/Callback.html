@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="./jquery-2.0.3.js"></script>
+	<script type="text/javascript" src="#"></script>
+	<script type="text/javascript">
+	//回调函数管理
+	var cb = $.Callbacks();
+
+	function fn1(){
+		alert(1);
+	}
+	function fn2(){
+		alert(2);
+	}
+	cb.add(fn1);
+	cb.add(fn2);
+	cb.fire();
+
+	cb.remove(fn1);
+	cb.fire();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
