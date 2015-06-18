@@ -75,6 +75,7 @@ var
 	rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,
 
 	// Match a standalone tag
+	// 匹配单标签，如"<li>","<li></li>";
 	rsingleTag = /^<(\w+)\s*\/?>(?:<\/\1>|)$/,
 
 	// Matches dashed string for camelizing
@@ -111,9 +112,15 @@ jQuery.fn = jQuery.prototype = {
 			if ( selector.charAt(0) === "<" && selector.charAt( selector.length - 1 ) === ">" && selector.length >= 3 ) {
 				// Assume that strings that start and end with <> are HTML and skip the regex check
 				match = [ null, selector, null ];
+				//match = [null, '<li>', null];
+				//match = [null, '<li>1</li><li>2</li>', null];
 
 			} else {
+				// rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,
 				match = rquickExpr.exec( selector );
+				//match = null;		//$'.box' $('div') $("#div1 div.box");
+				//match = ['#div1', null, 'div1'];	//$('#div1')
+				//match = ['<li>hello', '<li>', null];	//$('<li>hello')
 			}
 
 			// Match html or make sure no context is specified for #id
