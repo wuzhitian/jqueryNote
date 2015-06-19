@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"li",
+				"liArr"
+			],
+			[
 				"proto",
 				"prototype"
 			],
@@ -22,10 +26,6 @@
 			[
 				"padding",
 				"padding-left"
-			],
-			[
-				"li",
-				"lis	list-style"
 			],
 			[
 				"cf",
@@ -55,56 +55,56 @@
 			"file": "简化JQ的框架.js",
 			"settings":
 			{
-				"buffer_size": 783,
+				"buffer_size": 768,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/Markdown.sublime-settings",
+			"file": "test/jquery-2.0.3.js",
 			"settings":
 			{
-				"buffer_size": 2954,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/jason/AppData/Local/Temp/Rar$DR00.334/Solarized (Dark).tmTheme",
-			"settings":
-			{
-				"buffer_size": 45222,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/jason/AppData/Local/Temp/Rar$DR08.357/Monokai.tmTheme",
-			"settings":
-			{
-				"buffer_size": 8554,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/jason/AppData/Local/Temp/Rar$DR00.111/MarkdownEditor.tmTheme",
-			"settings":
-			{
-				"buffer_size": 32579,
+				"buffer_size": 242581,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "note/jQuery.prototype.init0.md",
+			"file": "test/jQuery.parseHTML.html",
 			"settings":
 			{
-				"buffer_size": 1553,
+				"buffer_size": 515,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "note/jQuery.prototype.init1.md",
+			"file": "note.md",
 			"settings":
 			{
-				"buffer_size": 4238,
+				"buffer_size": 2560,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "####Reg.exec()\n`exec` 查找并返回当前的匹配结果，并以数组的形式返回。\n**`不存在子捕获组`**: 如果匹配结果为空，则 `arr` 为 `null`; 否则 `arr` 总是一个长度为 1 的数组,其值就是当前匹配项。\n`arr` 还有两个属性：`index` 当前匹配项的位置；`input`：匹配源\n```javascript\n    var str1 = \"1a1b1c\", reg1 = new RegExp(\"1.\", \"\");\n    console.log(reg1.exec(str1)[0]);        //1a\n\n    var str2 = \"2a2b2c\", reg2 = new RegExp(\"2.\", \"\");\n    var result2 = reg2.exec(str2)\n    console.log(result2);                   //[ '2a', index: 0, input: '2a3b3c' ]\n    console.log(reg1.exec(str1)[\"input\"]);  //2a2b2c\n    console.log(reg1.exec(str1)[\"index\"]);  //0\n```\n\n`exec` 方法受参数 g 的影响。若指定了 `g`，则下次调用 `exec` 时，\n会从上个匹配的结束的位置（`index` + 当前匹配项的长度）开始查找。\n\n```javascript\n    var str0 = \"0a0b0c\", reg0 = new RegExp(\"0.\", \"g\");\n    console.log(reg0.exec(str0)[0]);        //0a\n    console.log(reg0.exec(str0)[0]);        //0b\n    console.log(reg0.exec(str0)[0]);        //0c\n\n    var str3 = \"3a3b3c\", reg3 = new RegExp(\"3.\", \"g\");\n    var result3_0 = reg3.exec(str3);\n    console.log(result3_0);                 //[ '3a', index: 0, input: '3a3b3c' ]\n    var result3_1 = reg3.exec(str3);\n    console.log(result3_1);                 //[ '3b', index: 2, input: '3a3b3c' ]\n    var result3_2 = reg3.exec(str3);\n    console.log(result3_2);                 //[ '3c', index: 4, input: '3a3b3c' ]\n    console.log(result3_2.length);          //1\n```\n\n**`存在子捕获组`**: 如果匹配结果为空，则 `arr` 为 `null`; 否则, 返回的`Arr`的长度与捕获组的个数有关，捕获组的个数就`arr`的长度，其值就是当前匹配项，结果编号位置与捕获组编号有关.\n`arr` 还有两个属性：`index` 当前匹配项的位置；`input`：匹配源\n\n--------------------------------\n\n```javascript\n    var reg = /([ab](cd))\\1/g;\n    var str = \"abcdbcd ebbcde\";\n    console.log(str.match(reg));    //[ 'bcdbcd' ]\n\n    var reg1 = /([ab](cd))\\2/g;\n    var str1 = \"abcdcd ebbcde\";\n    console.log(str1.match(reg1));  //[ 'bcdcd' ]\n\n    var reg2 = /([abc](cd))\\2/g;\n    var str2 = \"abcdcd bacdcd\";\n    console.log(reg2.exec(str2));   \n    //[ 'bcdcd', 'bcd', 'cd', index: 1, input: 'abcdcd bacdcd' ];\n    console.log(reg2.exec(str2));   \n    //[ 'acdcd', 'acd', 'cd', index: 8, input: 'abcdcd bacdcd' ];\n```\n\n*普通捕获组编号规则*：\n    \n    eg: \n    (\\d{4})-(\\d{2}-(\\d\\d));\n    -----------------------\n              0\n    ------- --------------\n       1          2\n                    ------\n                       3\n    \n\n",
+			"file": "零碎.md",
+			"file_size": 2910,
+			"file_write_time": 130791551124814363,
+			"settings":
+			{
+				"buffer_size": 2232,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "# MarkdownEditing\n\nMarkdown plugin for Sublime Text. Provides a decent Markdown color scheme (light and dark) with more __robust__ syntax highlighting and useful Markdown editing features for Sublime Text. 3 flavors are supported: Standard Markdown, __GitHub flavored Markdown__, MultiMarkdown.\n\n![MarkdownEditing][github]\n\n[Dark][github 2] and [yellow][github 3] theme available.\n\n## Overview\n\n* [Features](#features)\n* [Key Bindings](#key-bindings)\n* [GFM Specific Features](#gfm-specific-features)\n* [Commands for Command Palette](#commands-for-command-palette)\n* [Installation](#installation)\n* [Configuration](#configuration)\n* [Tips](#tips)\n* [Similar Plugins](#similar-plugins)\n* [Known Bugs](#known-bugs)\n* [Contributing](#contributing)\n* [Credits](#credits)\n* [Donation](#donation)\n* [License](#license)\n\n## Features\n\n* Asterisks and underscores are autopaired and will wrap selected text\n    - If you start an empty pair and hit backspace, both elements are deleted\n    - If you start an empty pair and hit space, the right element is deleted\n* Backticks are paired\n* At the end of a list item, pressing <kbd>Enter</kbd> will automatically insert the new list item bullet.\n    - Pressing <kbd>Tab</kbd> on the blank list item will indent it and switch the list bullet to another one (Order is `*`, `-`, `+` in a cycle).\n    - Pressing <kbd>Shift</kbd> <kbd>Tab</kbd> on the blank list item will unindent it in the same way as above.\n    - Sequential <kbd>Tab</kbd> s or <kbd>Shift</kbd> <kbd>Tab</kbd> s are supported.\n    - You can disable automatic bullet switching or choose which bullets to be used, in your settings file.\n    - If a list item contains a [GFM task][GFM], pressing <kbd>Enter</kbd> at the end of the line will continue with a new blank task.\n* At the end of a blockquote line, pressing <kbd>Enter</kbd> will automatically extend blockquote.\n* Selecting some text and pressing <kbd>&gt;</kbd> will convert it to blockquote. The first and the last line don't have to be fully selected; partial select works, too.\n* Left bracket pairing is modified to eliminate the selection and leave the cursor at a point where you can insert a `[]` or `()` pair for a link\n* Displays Markdown headers in the Project Symbol List (<kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>R</kbd>). They will start with `#`, so you will know they belong to markdown files at a glance. Also they will be on top of the list because of the presedence of `#`.\n* <kbd>~</kbd> wraps selected text with `~~` (strikethrough).\n* Typing `#` when there's a selection will surround it with `#` to make it a headline. Multiple presses add additional hashes, increasing the level of the header. Once you hit 6 hashes, it will reset to 0 on the next press. The `mde.match_header_hashes` will determine if the `#` are mirrored on both sides or just at the beginning of the line.\n* Typing return at the end of a line that begins with hashmarks will insert closing hashmarks on the headline. They're not required for Markdown, it's just aesthetics, and you can change the `mde.match_header_hashes` option in your settings to disable.\n* Setext-style headers can be completed with `Tab`. That is, typing `Tab` on a line containing only `=` or `-` characters will add or remove enough characters to it to match the length of the line above.\n* New documents will be named automatically based on the first header.\n\n## Key Bindings\n\n| OS X | Windows/Linux | Description |\n|------|---------------|-------------|\n| <kbd>⌘</kbd><kbd>⌥</kbd><kbd>V</kbd> | <kbd>Ctrl</kbd><kbd>Win</kbd><kbd>V</kbd> | Pastes the contents of the clipboard as an inline link on selected text.\n| <kbd>⌘</kbd><kbd>⌥</kbd><kbd>R</kbd> | <kbd>Ctrl</kbd><kbd>Win</kbd><kbd>R</kbd> | Pastes the contents of the clipboard as a reference link.\n| <kbd>⌘</kbd><kbd>⌥</kbd><kbd>K</kbd> | <kbd>Ctrl</kbd><kbd>Win</kbd><kbd>K</kbd> | Inserts a standard inline link.\n| <kbd>⌘</kbd><kbd>⇧</kbd><kbd>K</kbd> | <kbd>Shift</kbd><kbd>Win</kbd><kbd>K</kbd> | Inserts an inline image.\n| <kbd>⌘</kbd><kbd>⌥</kbd><kbd>B</kbd> <kbd>⌘</kbd><kbd>⌥</kbd><kbd>I</kbd> | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>B</kbd> <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>I</kbd> | These are bound to bold and italic. They work both with and without selections. If there is no selection, they will just transform the word under the cursor. These keybindings will unbold/unitalicize selection if it is already bold/italic.\n| <kbd>⌘</kbd><kbd>^</kbd><kbd>1...6</kbd> | <kbd>Ctrl</kbd><kbd>1...6</kbd> | These will add the corresponding number of hashmarks for headlines. Works on blank lines and selected text in tandem with the above headline tools. If you select an entire existing headline, the current hashmarks will be removed and replaced with the header level you requested. This command respects the `mde.match_header_hashes` preference setting.\n| <kbd>⌘</kbd><kbd>⇧</kbd><kbd>6</kbd> | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>6</kbd> | Inserts a footnote and jump to its definition. If your cursor is in a definition, it will jump back to the marker.\n| <kbd>⌥</kbd><kbd>⇧</kbd><kbd>F</kbd> | <kbd>Alt</kbd><kbd>Shift</kbd><kbd>F</kbd> | Locates footnote markers without definitions and inserts their markers for the definition.\n| <kbd>⌥</kbd><kbd>⇧</kbd><kbd>G</kbd> | <kbd>Alt</kbd><kbd>Shift</kbd><kbd>G</kbd> | Locates link references without definitions and inserts their labels at the bottom for the definition.\n\n## GFM Specific Features\n\nUnderscores in words doesn't mess with bold or italic style:\n\n![underscore-in-words][github 5]\n\nFenced code blocks gets syntax highlighting inside:\n\n![fenced-code-block][github 6]\n\nKeyboard shortcuts gets highlighted like in GitHub:\n\n![keyboard-shortcut][github 7]\n\nStrikethrough is supported:\n\n![strikethrough][github 8]\n\n## Commands for Command Palette\n\n### Fix Underlined Headers\n\nAdjusts every setext-style header to add or remove `=` or `-` characters as needed to match the lengths of their header text.\n\n### Convert Underlined Headers to ATX\n\nConverts every setext-style header into an ATX style header. If something is selected only the headers in the selections will be converted, otherwise the conversion will be applied to the whole view.\n\n### Add Missing Link Labels\n\nScans document for referenced link usages (`[some link][some_ref]` and `[some link][]`) and checks if they are all defined. If there are undefined link references, command will automatically create their definition snippet at the bottom of the file.\n\n### Markdown Lint\n\nPerforms lint on current Markdown file. See [lint rules](lint_docs/RULES.md). Some of the linting rules are customizable via user settings file.\n\n### Switch List Bullet Type\n\nSwitches the highlighted list between numbered and bulleted style.\n\n## Installation\n\n> __Important Note About Installation__\n> \n> Are you getting this error after installation: _**Error loading syntax file** \"Packages/Markdown/Markdown.tmLanguage\": Unable to open Packages/Markdown/Markdown.tmLanguage_? This is caused by open markdown files at the install time. You have to __manually change their syntax to your newly installed Markdown syntax__. Read the below paragraph for more details on this.\n\n_Note_: Sublime text has a native tiny package for Markdown. However, when MarkdownEditing is enabled, native package causes some conflicts. For this reason, MarkdownEditing will automatically disable it. Since it doesn't bring anything new over MarkdownEditing, this is not a loss. But remember, when you disable MarkdownEditing, you have to reenable the native one manually (if you want).\n\nIf you are using Sublime Text 2, you have to disable the native package _manually_. To do that, add `Markdown` to your `ignored_packages` list in ST user settings:\n\n    \"ignored_packages\": [..., \"Markdown\"],\n\n### Package Control\n\nThe preferred method of installation is via [Sublime Package Control][wbond].\n\n1. [Install Sublime Package Control][wbond 2]\n2. From inside Sublime Text, open Package Control's Command Pallet: <kbd>CTRL</kbd> <kbd>SHIFT</kbd> <kbd>P</kbd> (Windows, Linux) or <kbd>CMD</kbd> <kbd>SHIFT</kbd> <kbd>P</kbd> on Mac.\n3. Type `install package` and hit Return. A list of available packages will be displayed.\n4. Type `MarkdownEditing` and hit Return. The package will be downloaded to the appropriate directory.\n5. Restart Sublime Text to complete installation. Open a Markdown file and this custom theme. The features listed above should now be available.\n\n### Manual Installation\n\n1. Download or clone this repository to a directory `MarkdownEditing` in the Sublime Text Packages directory for your platform:\n    * Mac: `git clone https://github.com/SublimeText-Markdown/MarkdownEditing.git ~/Library/Application\\ Support/Sublime\\ Text\\ 2/Packages/MarkdownEditing`\n    * Windows: `git clone https://github.com/SublimeText-Markdown/MarkdownEditing.git %APPDATA%\\Sublime/ Text/ 2/\\MarkdownEditing`\n    * Linux: `git clone https://github.com/SublimeText-Markdown/MarkdownEditing.git ~/.Sublime\\ Text\\ 2/Packages/MarkdownEditing`\n2. Restart Sublime Text to complete installation. Open a Markdown file and this custom theme. The features listed above should now be available.\n\n## Configuration\n\nThe plugin contains 3 different Markdown flavors: Standard Markdown, GitHub flavored Markdown, MultiMarkdown. Default is GitHub flavored Markdown. If you want to set another one as default, open a Markdown file and select your flavor from the menu: `View > Syntax > Open all with current extension as`. You're done.\n\nYou may want to have a look at the default settings files. They are located at:\n\n    Packages/MarkdownEditing/Markdown.sublime-settings         [GitHub flavored Markdown]\n    Packages/MarkdownEditing/Markdown (Standard).sublime-settings\n    Packages/MarkdownEditing/MultiMarkdown.sublime-settings\n\nIf you want to override any of the default settings, you can open the appropriate user settings file using the `Preferences > Package Settings > Markdown Editing` menu. Each flavor has a different settings file.\n\nBold and italic markers are configurable through ST shell variables. You can use `Preferences > Package Settings > Markdown Editing` menu to see the default settings file. In order to override it, copy & paste its content into the user settings file (`Packages/User/Bold and Italic Markers.tmPreferences`) from the menu and make your edits. It is pretty straightforward.\n\nIn order to activate the dark or the yellow theme, put one of these lines to your user settings file of the flavor (`Packages/User/[flavor].sublime-settings`):\n\n    \"color_scheme\": \"Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme\",\n    \"color_scheme\": \"Packages/MarkdownEditing/MarkdownEditor-Yellow.tmTheme\",\n\nIf you want to go with your already existing theme, you can reenable it with the same method as above. Keep in mind that, that theme may not cover all the parts of the Markdown syntax that this plugin defines.\n\nBy default, when you install the plugin, files with these extensions will be assigned to Markdown syntax: \"md\", \"txt\", \"mdown\", \"markdown\", \"markdn\". If you want to prevent any of these extensions to be opened as Markdown, follow these steps:\n\n1. Click on the language menu at bottom right\n2. Select \"Open all with current extension as\"\n3. Choose your preferred syntax for that extension\n\n## Tips\n\nWe are maintaining a [tips section][tips] in our [Wiki][]. Jump there to learn from others or share your experiences with others.\n\n## Similar Plugins\n\n* [Knockdown][]\n\n     Knockdown offers useful Markdown features and a custom Markdown theme. All of its unique features except its theme are ported to MarkdownEditing and some of them are actually improved further in MarkdownEditing.\n* [Sublime Markdown Extended][]\n* [SmartMarkdown][]\n\n## Known Bugs\n\n* Setext-style headers (`===` and `---`) do not show up in the symbol list. This is due to a Sublime Text limitation (see [#158][]). However, we are able to put a placeholder to indicate the existence of the header. We encourage you to use Atx-style headers (`#`).\n\n* Installing for the first time while having markdown files opened may cause MarkdownEditing to behave unexpectedly on those files. Close and reopen those files to fix it.\n\n## Contributing\n\nSee `CONTRIBUTING.md` file.\n\n## Credits\n\nMarkdownEditing was originally created by [Brett Terpstra][brettterpstra] and has become a community project with the goal of consolidating the best features from the varied collection of Markdown packages for Sublime Text. Current development is headed up by [Ali Ayas][github 9].\n\nRelated blog posts from Brett:\n* http://brettterpstra.com/2012/05/17/markdown-editing-for-sublime-text-2-humble-beginnings/\n* http://brettterpstra.com/2013/11/23/markdownediting-for-sublime-text-updates/\n\nThis plugin contains portions of code from [Knockdown][].\n\nFootnote commands were submitted by [J. Nicholas Geist][github 4] and originated at [geekabouttown][geekabouttown].\n\n## Donation\n\nYou can support [contributors](https://github.com/SublimeText-Markdown/MarkdownEditing/graphs/contributors) of this project individually. Every contributor is welcomed to add his/her line below with any content. Ordering shall be alphabetically by GitHub username.\n\n* [@maliayas](https://github.com/maliayas): <a href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=W2NXRPD43YSCU&amp;lc=TR&amp;item_name=open-source&amp;item_number=markdown-editing&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted\"><img src=\"https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif\" alt=\"[paypal]\" /></a> ![donation received](http://maliayas.com/business/donation/badge.php?project=markdown_editing)\n\n## License\n\nMarkdownEditing is released under the [MIT License][opensource].\n\n[TableEditor]:                 https://github.com/vkocubinsky/SublimeTableEditor\n[Knockdown]:                   https://github.com/aziz/knockdown/\n[Sublime Markdown Extended]:   https://github.com/jonschlinkert/sublime-markdown-extended\n[SmartMarkdown]:               https://github.com/demon386/SmartMarkdown\n[Typewriter]:                  https://github.com/alehandrof/Typewriter\n[OpenUrl]:                     https://github.com/noahcoad/open-url\n[brettterpstra]: http://brettterpstra.com\n[geekabouttown]: http://geekabouttown.com/posts/sublime-text-2-markdown-footnote-goodness\n[github]: https://raw.github.com/SublimeText-Markdown/MarkdownEditing/master/screenshots/light.png\n[github 2]: https://raw.github.com/SublimeText-Markdown/MarkdownEditing/master/screenshots/dark.png\n[github 3]: https://raw.github.com/SublimeText-Markdown/MarkdownEditing/master/screenshots/yellow.png\n[github 4]: https://github.com/jngeist\n[github 5]: https://raw.github.com/SublimeText-Markdown/MarkdownEditing/master/screenshots/underscore-in-words.png\n[github 6]: https://raw.github.com/SublimeText-Markdown/MarkdownEditing/master/screenshots/fenced-code-block.png\n[github 7]: https://raw.github.com/SublimeText-Markdown/MarkdownEditing/master/screenshots/keyboard-shortcut.png\n[github 8]: https://raw.github.com/SublimeText-Markdown/MarkdownEditing/master/screenshots/strikethrough.png\n[github 9]: https://github.com/maliayas\n[opensource]: http://www.opensource.org/licenses/MIT\n[wbond]: http://wbond.net/sublime_packages/package_control\n[wbond 2]: http://wbond.net/sublime_packages/package_control/installation\n[FullScreenStatus]: https://github.com/maliayas/SublimeText_FullScreenStatus\n[macstories]: http://www.macstories.net/roundups/sublime-text-2-and-markdown-tips-tricks-and-links/\n[tips]: https://github.com/SublimeText-Markdown/MarkdownEditing/wiki/Tips\n[Wiki]: https://github.com/SublimeText-Markdown/MarkdownEditing/wiki\n[GFM]: https://help.github.com/articles/github-flavored-markdown\n[#158]: https://github.com/SublimeText-Markdown/MarkdownEditing/issues/158\n",
+			"file": "/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/MarkdownEditing/README.md",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 15800,
+				"line_ending": "Windows",
+				"read_only": true,
+				"scratch": true
 			}
 		}
 	],
@@ -115,10 +115,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 104.0,
-		"last_filter": "instal",
+		"height": 392.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"mark",
+				"Preferences: MarkdownEditing Settings – Default"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
 			[
 				"instal",
 				"Package Control: Install Package"
@@ -126,10 +134,6 @@
 			[
 				"remove",
 				"Package Control: Remove Package"
-			],
-			[
-				"mark",
-				"Set Syntax: Markdown Extended"
 			],
 			[
 				"isntal",
@@ -150,10 +154,6 @@
 			[
 				"setma",
 				"Set Syntax: Markdown"
-			],
-			[
-				"pretty",
-				"Pretty JSON: Minify (compress) JSON"
 			],
 			[
 				"Snippet: ",
@@ -236,19 +236,33 @@
 	],
 	"file_history":
 	[
+		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/zhitian-snippets/MarkdownEditing/table.sublime-snippet",
+		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/MarkdownEditing/table.sublime-settings",
+		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/zhitian-snippets/html/lc-combox.sublime-snippet",
+		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/zhitian-snippets/css/g-bd1兼容.sublime-snippet",
+		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/zhitian-snippets/css/submitState.sublime-snippet",
+		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/zhitian-snippets/css/clearfloat.sublime-snippet",
+		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/clearfloat.sublime-snippet",
+		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/MarkdownEditing/Default (Windows).sublime-keymap",
+		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/MarkdownEditing/Markdown.sublime-settings",
+		"/C/Users/jason/Desktop/_html4/js/DD_belatedPNG0.0.8a-min.js",
+		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/Markdown.sublime-settings",
+		"/C/Users/jason/AppData/Local/Temp/Rar$DR00.334/Solarized (Dark).tmTheme",
+		"/C/Users/jason/AppData/Local/Temp/Rar$DR08.357/Monokai.tmTheme",
+		"/G/教程资料/教程/JQ源码讲解/jqueryNote/note/jQuery.prototype.init1.md",
+		"/G/教程资料/教程/JQ源码讲解/jqueryNote/note/jQuery.prototype.init0.md",
+		"/C/Users/jason/AppData/Local/Temp/Rar$DR00.111/MarkdownEditor.tmTheme",
 		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/Default/Preferences.sublime-settings",
 		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/Preferences.sublime-settings",
 		"/C/Users/jason/AppData/Local/Temp/Rar$DR00.270/Default.sublime-theme",
 		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/Default.sublime-theme",
-		"/G/教程资料/教程/JQ源码讲解/jqueryNote/note/jQuery.prototype.init1.md",
 		"/G/教程资料/教程/JQ源码讲解/jqueryNote/test/jQuery.prototype.init.js",
 		"/G/教程资料/教程/JQ源码讲解/jqueryNote/jQuery.prototype.init0.md",
-		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/Markdown.sublime-settings",
 		"/G/教程资料/教程/JQ源码讲解/jqueryNote/test/undefined.html",
 		"/G/教程资料/教程/JQ源码讲解/jqueryNote/note",
 		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/HTML-CSS-JS Prettify/README.md",
 		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/MarkdownPreview.sublime-settings",
-		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/MarkdownEditing/Markdown.sublime-settings",
 		"/C/Users/jason/AppData/Local/Temp/Rar$DR00.363/MarkdownEditor-Dark.tmTheme",
 		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/Markdown (Standard).sublime-settings",
 		"/G/教程资料/教程/JQ源码讲解/jqueryNote/test/jquery-2.0.3.js",
@@ -261,7 +275,6 @@
 		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/MarkdownEditing/README.md",
 		"/G/教程资料/教程/JQ源码讲解/jqueryNote/note.md",
 		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
-		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/MarkdownEditing/Default (Windows).sublime-keymap",
 		"/G/教程资料/教程/JQ源码讲解/jqueryNote/jQuery.prototype.init.md",
 		"/G/教程资料/教程/JQ源码讲解/jqueryNote/test/Deffered.html",
 		"/G/教程资料/教程/JQ源码讲解/jqueryNote/jQueryNote.sublime-project",
@@ -311,7 +324,6 @@
 		"/C/Users/jason/Links/jquery源码note.lnk",
 		"/C/Users/jason/Desktop/3d/1.html",
 		"/C/Users/jason/Desktop/fdsafdsa.css",
-		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/zhitian-snippets/css/clearfloat.sublime-snippet",
 		"/G/教程资料/教程/JQ源码讲解/jquery源码note/test/1callback.html",
 		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/Emmet/Emmet.sublime-settings",
 		"/C/Users/jason/AppData/Local/Temp/Rar$DR28.367/after.sublime-snippet",
@@ -351,19 +363,7 @@
 		"/C/Users/jason/Desktop/fasf.css",
 		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/JSON.sublime-settings",
 		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/Distraction Free.sublime-settings",
-		"/C/Users/jason/Desktop/fas.css",
-		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/zhitian-snippets/css/clearfloat.sublime-snippet",
-		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/zhitian-snippets/html/script.sublime-snippet",
-		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/zhitian-snippets/js/注释.sublime-snippet",
-		"/C/Users/jason/Desktop/_html22222/assign2.html",
-		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
-		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/Side Bar.sublime-settings",
-		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/SideBarEnhancements/Side Bar.sublime-settings",
-		"/C/Users/jason/AppData/Local/Temp/Rar$DI00.857/Side Bar.sublime-settings",
-		"/C/Users/jason/AppData/Local/Temp/Rar$DI02.280/Side Bar.sublime-settings",
-		"/C/Users/jason/AppData/Local/Temp/Rar$DR00.580/Side Bar.sublime-menu",
-		"/C/Users/jason/AppData/Local/Temp/Rar$DI00.913/Side Bar.sublime-settings",
-		"/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/clearfloat.sublime-snippet"
+		"/C/Users/jason/Desktop/fas.css"
 	],
 	"find":
 	{
@@ -371,7 +371,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
 		]
@@ -381,6 +381,24 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"table",
+			"true",
+			";;",
+			"######",
+			"//",
+			"constructor",
+			"######(",
+			"\n######(",
+			"######(",
+			"###",
+			"//",
+			"*",
+			"bold",
+			"Bold",
+			"bold",
+			"head",
+			"heade",
+			"<!-- bold -->",
 			"bold",
 			"<string>bold</string>",
 			"bold",
@@ -499,7 +517,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -508,15 +526,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 783,
+						"buffer_size": 768,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								109,
-								109
+								198,
+								198
 							]
 						],
 						"settings":
@@ -531,223 +549,174 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/User/Markdown.sublime-settings",
+					"file": "test/jquery-2.0.3.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2954,
+						"buffer_size": 242581,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								896,
-								896
+								2818,
+								2818
 							]
 						],
 						"settings":
 						{
-							"bs_sintax": "json",
-							"buffer_scroll_name": "d3245beb",
+							"bs_sintax": "javascript",
+							"buffer_scroll_name": "9864bc1f",
 							"spell_check": false,
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1728.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "test/jQuery.parseHTML.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 515,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								472,
+								472
+							]
+						],
+						"settings":
+						{
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "78df8eec",
+							"spell_check": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 2,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
 				{
-					"buffer": 2,
-					"file": "/C/Users/jason/AppData/Local/Temp/Rar$DR00.334/Solarized (Dark).tmTheme",
+					"buffer": 3,
+					"file": "note.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 45222,
+						"buffer_size": 2560,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8017,
-								8026
+								2135,
+								2135
 							]
 						],
 						"settings":
 						{
-							"bs_sintax": "xml",
-							"buffer_scroll_name": "330f8736",
+							"bs_sintax": "markdown",
+							"buffer_scroll_name": "b01f52db",
+							"parser": "markdown",
 							"spell_check": false,
-							"syntax": "Packages/XML/XML.tmLanguage",
+							"syntax": "Packages/MarkdownEditing/Markdown.tmLanguage",
+							"target": "disk",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3294.0,
+						"translation.y": 1998.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "/C/Users/jason/AppData/Local/Temp/Rar$DR08.357/Monokai.tmTheme",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8554,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2506,
-								2510
-							]
-						],
-						"settings":
-						{
-							"bs_sintax": "xml",
-							"buffer_scroll_name": "726658ac",
-							"spell_check": false,
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1537.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 2,
-			"sheets":
-			[
-				{
 					"buffer": 4,
-					"file": "/C/Users/jason/AppData/Local/Temp/Rar$DR00.111/MarkdownEditor.tmTheme",
+					"file": "零碎.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 32579,
+						"buffer_size": 2232,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5746,
-								5750
-							],
-							[
-								8021,
-								8025
-							],
-							[
-								8440,
-								8444
-							],
-							[
-								17650,
-								17654
-							],
-							[
-								18449,
-								18453
+								2232,
+								2232
 							]
 						],
 						"settings":
 						{
-							"bs_sintax": "xml",
-							"buffer_scroll_name": "f5377db6",
+							"bs_sintax": "plain text",
+							"buffer_scroll_name": "9fb989c3",
+							"parser": "markdown",
 							"spell_check": false,
-							"syntax": "Packages/XML/XML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/MarkdownEditing/Markdown.tmLanguage",
+							"target": "disk"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1501.0,
+						"translation.y": 864.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "note/jQuery.prototype.init0.md",
+					"file": "/D/Program Files/Sublime Text Build 3083 x64/Data/Packages/MarkdownEditing/README.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1553,
+						"buffer_size": 15800,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								29,
-								43
+								11298,
+								11298
 							]
 						],
 						"settings":
 						{
 							"bs_sintax": "markdown",
-							"buffer_scroll_name": "fa1079f8",
+							"buffer_scroll_name": "74a9ff59",
 							"spell_check": false,
-							"syntax": "Packages/MarkdownEditing/Markdown.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/MarkdownEditing/Markdown.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "note/jQuery.prototype.init1.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4238,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								469,
-								469
-							]
-						],
-						"settings":
-						{
-							"bs_sintax": "markdown",
-							"buffer_scroll_name": "a793670b",
-							"spell_check": false,
-							"syntax": "Packages/MarkdownEditing/Markdown.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -781,7 +750,7 @@
 		"cols":
 		[
 			0.0,
-			0.467877340453,
+			0.208484134601,
 			1.0
 		],
 		"rows":
@@ -798,6 +767,10 @@
 	"output.find_results":
 	{
 		"height": 0.0
+	},
+	"output.markdown":
+	{
+		"height": 118.0
 	},
 	"pinned_build_system": "",
 	"project": "jQueryNote.sublime-project",
@@ -857,7 +830,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 83.0,
+	"side_bar_width": 228.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

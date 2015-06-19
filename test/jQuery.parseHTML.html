@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-2.0.3.js"></script>
+</head>
+<body>
+	<ul></ul>
+	<script type="text/javascript">
+	var liStr = "<li>1</li><li>2</li><li>3</li><script>alert(4)<\/script>";
+	// var liArr = jQuery.parseHTML(liStr,null,true);
+	var liArr = jQuery.parseHTML(liStr,null,false);
+	// console.log(liArr[0]);
+	$.each(liArr, function(i){
+		$("ul").append(liArr[i]);
+	});
+	var arr0 = {};
+	</script>
+</body>
+</html>

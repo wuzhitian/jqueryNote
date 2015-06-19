@@ -132,6 +132,8 @@ jQuery.fn = jQuery.prototype = {
 
 					// scripts is true for back-compat
 					jQuery.merge( this, jQuery.parseHTML(
+						//eg: params "<li>1</li><li>2</li><li>3</li>";
+						//return: ["li", "li", "li"];
 						match[1],
 						context && context.nodeType ? context.ownerDocument || context : document,
 						true
