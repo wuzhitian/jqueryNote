@@ -112,19 +112,23 @@ jQuery.fn = jQuery.prototype = {
 			if ( selector.charAt(0) === "<" && selector.charAt( selector.length - 1 ) === ">" && selector.length >= 3 ) {
 				// Assume that strings that start and end with <> are HTML and skip the regex check
 				match = [ null, selector, null ];
-				//match = [null, '<li>', null];
-				//match = [null, '<li>1</li><li>2</li>', null];
+				//------ match = [null, '<li>', null];	//$("<li>");
+				//------ match = [null, '<li>1</li><li>2</li>', null];	//$("<li>1</li><li>2</li>");
 
 			} else {
 				// rquickExpr = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,
 				match = rquickExpr.exec( selector );
-				//match = null;		//$'.box' $('div') $("#div1 div.box");
-				//match = ['#div1', null, 'div1'];	//$('#div1')
-				//match = ['<li>hello', '<li>', null];	//$('<li>hello')
+				//------ match = null;		//$('.box') $('div') $("#div1 div.box");
+				//------ match = ['#div1', null, 'div1'];	//$('#div1');
+				//------ match = ['<li>hello', '<li>', null];	//$('<li>hello');
 			}
 
 			// Match html or make sure no context is specified for #id
-			if ( match && (match[1] || !context) ) {
+			//------ match = [null, '<li>', null];	//$("<li>");
+			//------ match = [null, '<li>1</li><li>2</li>', null];	//$("<li>1</li><li>2</li>");
+			//------ match = ['<li>hello', '<li>', null];	//$('<li>hello');
+			
+			if ( match && (match[1] || !context) ) {	//创建标签
 
 				// HANDLE: $(html) -> $(array)
 				if ( match[1] ) {
@@ -132,8 +136,8 @@ jQuery.fn = jQuery.prototype = {
 
 					// scripts is true for back-compat
 					jQuery.merge( this, jQuery.parseHTML(
-						//eg: params "<li>1</li><li>2</li><li>3</li>";
-						//return: ["li", "li", "li"];
+						//------ eg: params "<li>1</li><li>2</li><li>3</li>";
+						//------ return: ["li", "li", "li"];
 						match[1],
 						context && context.nodeType ? context.ownerDocument || context : document,
 						true
@@ -141,21 +145,39 @@ jQuery.fn = jQuery.prototype = {
 
 					// HANDLE: $(html, props)
 					if ( rsingleTag.test( match[1] ) && jQuery.isPlainObject( context ) ) {
+						//------ $("<li>",{title: "hello", html: "abcd", css: {background: "red"}});
+						//------ $("<li></li>",{title: "hello", html: "abcd", css: {background: "red"}});
 						for ( match in context ) {
 							// Properties of context are called as methods if possible
 							if ( jQuery.isFunction( this[ match ] ) ) {
+								// $("<li>").html();
 								this[ match ]( context[ match ] );
 
 							// ...and otherwise set as attributes
 							} else {
+								//$("<li>").attr("title", context["title"]);
 								this.attr( match, context[ match ] );
 							}
 						}
+
+						//------ for ( var props in context ) {
+						//------ 	// Properties of context are called as methods if possible
+						//------ 	if ( jQuery.isFunction( this[ props ] ) ) {
+						//------ 		// $("<li>").html();
+						//------ 		this[ props ]( context[ props ] );
+
+						//------ 	// ...and otherwise set as attributes
+						//------ 	} else {
+						//------ 		this.attr( props, context[ props ] );
+						//------ 	}
+						//------ }
 					}
 
 					return this;
 
 				// HANDLE: $(#id)
+				//------ match = ['#div1', null, 'div1'];	//$('#div1');
+				
 				} else {
 					elem = document.getElementById( match[2] );
 
@@ -169,20 +191,27 @@ jQuery.fn = jQuery.prototype = {
 
 					this.context = document;
 					this.selector = selector;
-					return this;
+					return this; 
 				}
 
 			// HANDLE: $(expr, $(...))
 			} else if ( !context || context.jquery ) {
+				//------ $("ul", $(document));
+				//------ $(document).find("ul")
 				return ( context || rootjQuery ).find( selector );
 
 			// HANDLE: $(expr, context)
 			// (which is just equivalent to: $(context).find(expr)
 			} else {
+				//------ $("ul", document);
+				//------ jQuery(document).find("ul");
 				return this.constructor( context ).find( selector );
 			}
 
 		// HANDLE: $(DOMElement)
+		//------ var oUl = document.getElementById("ul0");
+		//------ $(oUl);
+		//------ console.log(document.nodeType)  //9
 		} else if ( selector.nodeType ) {
 			this.context = this[0] = selector;
 			this.length = 1;
@@ -191,15 +220,24 @@ jQuery.fn = jQuery.prototype = {
 		// HANDLE: $(function)
 		// Shortcut for document ready
 		} else if ( jQuery.isFunction( selector ) ) {
+			//------ $(document).ready(function(){});
 			return rootjQuery.ready( selector );
 		}
 
 		if ( selector.selector !== undefined ) {
+			//------ $($("#div1"));
 			this.selector = selector.selector;
 			this.context = selector.context;
 		}
 
 		return jQuery.makeArray( selector, this );
+				//------ var aDiv = document.getElementsByTagName("div");
+				//------ console.log(aDiv);
+				//------ //var $aDiv = $.makeArray(aDiv, {length: 0});	//返回一个json结构体
+				//------ var $aDiv = $.makeArray(aDiv);
+				//------ console.log($aDiv);
+				//------ aDiv.push("AA");	//aDiv.push is not a function
+				//------ $aDiv.push("AA");
 	},
 
 	// Start with an empty selector
@@ -215,6 +253,13 @@ jQuery.fn = jQuery.prototype = {
 	// Get the Nth element in the matched element set OR
 	// Get the whole matched element set as a clean array
 	get: function( num ) {
+		//------ $('div').get(0).innerHTML("222222");
+		
+		
+		//------ var aDiv = $('div').get();
+		//------ for(var i = 0; i < $('div').get().length; i++){
+		//------- 	$('div').get(i).innerHTML("**D*D**DD**");
+		//------ }
 		return num == null ?
 
 			// Return a 'clean' array

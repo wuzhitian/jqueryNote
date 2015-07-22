@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-2.0.3.js"></script>
+</head>
+<body>
+	<!-- <ul></ul>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div> -->
+
+	<!-- <input type="text" value="寻人启事"> -->
+
+	<script type="text/javascript">
+	// jQuery.parseHTML()
+	// var liStr = "<li>1</li><li>2</li><li>3</li><script>alert(4)<\/script>";
+	// // var liArr = jQuery.parseHTML(liStr,null,true);
+	// var liArr = jQuery.parseHTML(liStr,null,false);
+	// // console.log(liArr[0]);
+	// $.each(liArr, function(i){
+	// 	$("ul").append(liArr[i]);
+	// });
+	
+
+
+	
+	// var arr0 = {};
+	// var obj = {
+	// 	aa: 11,
+	// 	bb: 22,
+	// 	cc: 33,
+	// 	dd: 44
+	// }, match = ["li", "span"];
+	// for(match in obj){
+	// 	console.log(obj[match]);
+	// 	console.log(match);
+	// }
+	 
+	
+	// alert(document.nodeType);
+	
+
+	// jQuery.makeArray()
+	// $(function(){
+	// 	var aDiv = document.getElementsByTagName("div");
+	// 	console.log(aDiv);
+	// 	// var $aDiv = $.makeArray(aDiv, {length: 0});
+	// 	var $aDiv = $.makeArray(aDiv);
+	// 	console.log($aDiv);
+	// 	aDiv.push("AA");	//aDiv.push is not a function
+	// 	$aDiv.push("AA");
+	// });
+	
+
+
+	// var aDiv = $("div").get();
+	// console.log(aDiv);
+	// for(var i = 0; i < aDiv.length; i++){
+	// 	// $("div").get(i).innerHTML = "DDD"+i;
+	// 	aDiv[i].innerHTML = "DESS" + i;
+	// 	console.log(aDiv[i].constructor);
+	// }
+	</script>
+
+	<!-- <div>div</div>
+	<span>span</span> -->
+	<script type="text/javascript">
+	// $(function(){
+		// $('div').pushStack($('span')).css('background', 'red');
+	// })
+	
+
+	var arr = ["AA", "BB", "CC"];
+	arr = $.map(arr, function(ele, i){
+		return ele + i;
+	});
+	console.log(arr);
+	</script>
+</body>
+</html>
